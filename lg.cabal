@@ -17,11 +17,16 @@ executable lg
   -- other-modules:
   -- other-extensions:
   build-depends:       base >=4.8 && <5
+                     , aeson
+                     , bytestring
+                     , directory
                      , errors
-                     , text
-                     , text-format
+                     , filepath
                      , optparse-applicative
                      , optparse-text
+                     , text
+                     , text-format
+                     , time
   hs-source-dirs:      .
   ghc-options:         -threaded
                        -rtsopts
