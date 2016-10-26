@@ -1,19 +1,19 @@
 name:                lg
 version:             0.0.0.0
--- synopsis:
--- description:
+synopsis:            work log
+description:         A utility to keep a work log.
 license:             Apache-2.0
 license-file:        LICENSE
 author:              Eric Rochester
 maintainer:          erochest@gmail.com
 copyright:           2016 Eric Rochester
--- category:
+category:            Utility
 build-type:          Simple
 -- extra-source-files:
 cabal-version:       >=1.10
 
 executable lg
-  main-is:             Lg.lhs
+  main-is:             Lg.hs
   -- other-modules:
   -- other-extensions:
   build-depends:       base >=4.8 && <5
