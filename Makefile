@@ -55,16 +55,16 @@ build:
 	stack build $(BUILD_FLAGS)
 
 test:
-	stack test $(BUILD_FLAGS)
+	stack test $(BUILD_FLAGS) # --test-arguments "-m TODO"
 
 bench:
 	stack bench $(BUILD_FLAGS)
 
 watch:
-	ghcid "--command=stack ghci"
+	stack build $(BUILD_FLAGS) --fast --file-watch --exec 'make run'
 
 watch-test:
-	stack test --file-watch --pedantic # --test-arguments "-m TODO"
+	stack build --file-watch --pedantic --exec 'make test'
 
 restart: distclean init build
 
