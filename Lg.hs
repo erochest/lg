@@ -23,6 +23,7 @@ data LgOptions
     = LgO
     { lgoDate    :: !(Maybe UTCTime)
     , lgoOutput  :: !(Maybe FilePath)
+    , lgoTags    :: ![T.Text]
     , lgoMessage :: !T.Text
     }
 
@@ -50,7 +51,7 @@ main = do
                      </> "worklog-%Y-%m-%d.json"
         output = fromMaybe (formatTime defaultTimeLocale outputFormat now)
                            lgoOutput
-        lg     = Log now [] lgoMessage
+        lg     = Log now lgoTags lgoMessage
     createDirectoryIfMissing True $ takeDirectory output
     BL.appendFile output $ (`BL.append` "\n") $ encode lg
 
@@ -70,6 +71,9 @@ opts'
                                     \ ~/Dropbox/lg/YYYY/MM/DD/\
                                     \worklog-YYYY-MM-DD.json."
                             ))
+    <*> many (option (T.pack <$> str) (  short 't' <> long "tag"
+                                      <> metavar "TAG"
+                                      <> help "A tag to add to the entry."))
     <*> argument (T.pack <$> str) (  metavar "MESSAGE"
                                   <> help "The message to log.")
 
