@@ -1,0 +1,30 @@
+name: lg
+version: '0.0.0.0'
+synopsis: work log
+description: A utility to keep a work log.
+category: Utility
+author: Eric Rochester
+maintainer: erochest@gmail.com
+copyright: 2016 Eric Rochester
+license: Apache-2.0
+github: erochest/lg
+ghc-options:
+- -threaded
+- -rtsopts
+- -with-rtsopts=-N
+dependencies:
+- base >=4.8 && <5
+- aeson
+- bytestring
+- directory
+- errors
+- filepath
+- optparse-applicative
+- optparse-text
+- text
+- text-format
+- time
+executables:
+  lg:
+    main: Lg.hs
+    source-dirs: ./.

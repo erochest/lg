@@ -11,6 +11,7 @@ import           Data.Aeson
 import qualified Data.ByteString.Lazy as BL
 import           Data.Data
 import           Data.Maybe
+import           Data.Monoid          ((<>))
 import qualified Data.Text            as T
 import           Data.Time
 import           GHC.Generics
